@@ -1,24 +1,38 @@
 {{ define "main" }}
 
-<div class="ph3 bg-off-white">
-	<div class="center mw6 pv3">
+<div class="container">
 
-		<img src="{{ .Params.logo }}" alt="" class="db w4 center pv4">
+	{{ partial "nav" . }}
 
-		{{ .Content }}
+    <div class="intro">
+		<h1>{{.Title}}</h1>
+	</div>
 
-		<div class="flex-ns mb3">
-	        	{{ range .Params.contact_entries }}
-				<div>
-					<h4 class="f4 b lh-title mb2 primary">{{ .heading }}</h4>
+    <div class="contacts">
+		<div class="contacts-intro">
+
+			{{ .Content }}
+
+		</div>
+
+		<div class="contacts-entries">
+			{{ range .Params.contact_entries }}
+				<div class="contacts-entries-item">
+					<h4>{{ .heading }}</h4>
 					<p>{{ .text }}</p>
 				</div>
 			{{ end }}
 		</div>
 
-		{{ partial "contact-form" . }}
-
+		<div class="contacts-links">
+			{{ range .Params.links }}
+				<div>
+					<a href="{{ .link }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>
+				</div>
+			{{ end }}
+		</div>
 	</div>
+
 </div>
 
 {{ end }}

@@ -1,13 +1,36 @@
 {{ define "main" }}
 
-{{ partial "jumbotron" (dict "imageUrl" .Params.image "title" .Title "subtitle" .Params.subtitle) }}
+<div class="container">
+    
+    {{ partial "nav" . }}
+    
+    <div class="intro">
+        <h1>{{.Params.title}}</h1>
+        <h2>{{.Params.subtitle}}</h2>
+    </div>
 
-{{ partial "short-text" .Params.blurb}}
+    <div class="content">
+        <div class="content-image">
+            <img src="{{ .Params.image }}" alt="{{ .Title }}" />
+        </div>
+        <div class="content-text">
+            <h2>{{.Params.intro.heading}}</h2>
+            <p>{{.Params.intro.text}}</p>
+        </div>
+    </div>
 
-{{ partial "2-up" .Params }}
+    <div class="gallery">
+        {{ range .Paginator.Pages.ByPublishDate.Reverse }}
+            <div class="gallery-item">
+                <a href="{{ .RelPermalink }}">
+                    <img src="{{ .Params.image }}" alt="{{ .Title }}" />
+                    <h2>{{ .Title }}</h2>
+                    <p>{{ .Date.Format "2006" }}</p>
+                </a>
+            </div>
+        {{ end }}
+    </div>
 
-{{ partial "text-and-image" (dict "heading" .Params.values.heading "text" .Params.values.text "buttonText" "Read more" "buttonLink" "/values") }}
-
-{{ partial "blog" . }}
+</div>
 
 {{ end }}

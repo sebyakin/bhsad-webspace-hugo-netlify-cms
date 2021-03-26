@@ -2,7 +2,60 @@
 
 <div class="container">
     
-    {{ partial "nav" . }}
+    <div class="check-this">
+        <a href="https://www.google.com/">Check this</a>
+    </div>
+
+    <div class="top">
+        <h1>{{.Params.title}}</h1>
+    </div>
+
+    <div class="gallery">
+
+        <div class="gallery-top-image">
+            <img src="./imgs/tauba-auberbach-3.jpg" alt="">
+        </div>
+
+        <div class="gallery-second-images">
+            <div class="gallery-second-image-s">
+                <img src="./imgs/tauba-auberbach-4.jpg" alt="">
+            </div>
+            <div class="gallery-second-image-m">
+                <img src="./imgs/tauba-auberbach-5.jpg" alt="">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="about">
+        <p>
+            Tauba Auerbach is a visual artist working in many disciplines including painting, artists' books, sculpture and weaving. They live and work in New York.
+        </p>
+    </div>
+
+    <div class="contacts">
+
+        <div class="contacts-headline">
+            <h2>
+                Get in touch
+            </h2>
+        </div>
+
+        <div class="contacts-buttons">
+            <a href="https://www.instagram.com/tau_au/">   
+                <div class="contacts-button">Instagram</div>
+            </a>
+
+            <a href="https://www.artsy.net/artist/tauba-auerbach">
+                <div class="contacts-button">Artsy profile</div>
+            </a>
+
+        </div>
+
+
+
+
+    </div>
     
     <div class="intro">
         <h1>{{.Params.title}}</h1>
